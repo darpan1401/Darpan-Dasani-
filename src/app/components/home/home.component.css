@@ -103,18 +103,18 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  max-width: 500px; /* Reduced from 500px */
+  max-width: 500px;
   margin: 0 auto;
   order: 2;
-  width: 100%; 
+  width: 100%;
 }
 
 .home-page .about-image img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  aspect-ratio: 1/1; /* Makes the image square, adjust if needed */
+  object-fit: cover;
+  aspect-ratio: 1/1;
 }
 
 .home-page .about-text {
@@ -155,7 +155,6 @@
   color: #3ccfb6;
   font-size: 1.5rem;
 }
-
 
 /* Skills Section */
 .skills-section {
@@ -228,10 +227,17 @@
 }
 
 .skills-section .skill-icon {
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
 }
+
+.skills-section .skills {
+  font-size: 1.1rem;
+
+}
+
+
 
 .skills-section span {
   font-size: clamp(0.8rem, 2vw, 0.9rem);
@@ -256,101 +262,109 @@
   box-shadow: 0 5px 15px rgba(60, 207, 182, 0.3);
 }
 
-/* Testimonials - Fully Responsive Carousel */
+/* Testimonials Section - Enhanced Carousel */
 .home-page .testimonial-slider {
   position: relative;
-  max-width: 900px; /* Slightly wider for larger screens */
+  max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 0 4rem; /* More padding for larger screens */
+  padding: 0 1rem;
+  width: 100%;
 }
+
+
 
 .home-page .testimonial-track {
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   will-change: transform;
+  align-items: center;
 }
 
 .home-page .testimonial-slide {
   min-width: 100%;
   flex-shrink: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
   padding: 0 1rem;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 
 .home-page .testimonial-card {
   background: rgba(255, 255, 255, 0.05);
-  padding: 3rem 2.5rem; /* More vertical padding */
-  border-radius: 12px; /* Slightly larger radius */
-  border: 1px solid rgba(60, 207, 182, 0.2);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(60, 207, 182, 0.3);
   text-align: center;
-  transition: all 0.3s ease;
-  transform: scale(0.96); /* Slightly less scaling for smoother effect */
-  opacity: 0.8; /* Slightly more visible when inactive */
-  margin: 0 auto;
-  max-width: 800px; /* Prevent cards from getting too wide */
+  transition: all 0.4s ease;
+  transform: scale(0.96);
+  opacity: 0.8;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .home-page .testimonial-slide.active .testimonial-card {
   transform: scale(1);
   opacity: 1;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(60, 207, 182, 0.5);
 }
 
 .home-page .testimonial-text {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem); /* Better size progression */
+  font-size: clamp(1.1rem, 2.3vw, 1.5rem);
   font-style: italic;
   margin-bottom: 2rem;
-  line-height: 1.7; /* Slightly more readable line height */
+  line-height: 1.8;
   color: white;
   position: relative;
   quotes: "“" "”" "‘" "’";
-  padding: 0 1rem; /* Ensure text doesn't touch edges */
+  padding: 0 0.5rem;
 }
 
 .home-page .testimonial-text::before,
 .home-page .testimonial-text::after {
   color: #3ccfb6;
-  font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive quote marks */
-  line-height: 1;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 0.8;
   position: absolute;
   opacity: 0.3;
+  font-family: serif;
 }
 
 .home-page .testimonial-text::before {
   content: open-quote;
-  top: -0.5rem;
-  left: -0.5rem;
+  top: 0;
+  left: -0.2rem;
 }
 
 .home-page .testimonial-text::after {
   content: close-quote;
-  bottom: -2rem;
-  right: -0.5rem;
+  bottom: -1.5rem;
+  right: -0.2rem;
 }
 
 .home-page .testimonial-author {
   display: flex;
   flex-direction: column;
-  margin-top: 2.5rem; /* More space above author */
+  margin-top: 2rem;
 }
 
 .home-page .name {
   font-weight: 600;
-  font-size: clamp(1.1rem, 2.5vw, 1.3rem); /* Better size progression */
+  font-size: clamp(1.1rem, 2.3vw, 1.4rem);
   color: #3ccfb6;
-  margin-bottom: 0.3rem; /* Small space between name and role */
+  margin-bottom: 0.3rem;
 }
 
 .home-page .role {
-  opacity: 0.8;
-  font-size: clamp(0.95rem, 2vw, 1.1rem); /* Better size progression */
+  opacity: 0.9;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
   color: rgba(255, 255, 255, 0.8);
-  font-style: normal;
 }
 
-/* Navigation */
+/* Navigation Buttons */
 .home-page .slider-nav {
   position: absolute;
   top: 50%;
@@ -358,8 +372,8 @@
   background: rgba(60, 207, 182, 0.15);
   border: none;
   color: #3ccfb6;
-  width: clamp(40px, 5vw, 56px); /* Responsive button size */
-  height: clamp(40px, 5vw, 56px);
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -367,7 +381,7 @@
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .home-page .slider-nav:hover {
@@ -377,29 +391,29 @@
 }
 
 .home-page .slider-nav.prev {
-  left: 0.5rem;
+  left: 0;
 }
 
 .home-page .slider-nav.next {
-  right: 0.5rem;
+  right: 0;
 }
 
 .home-page .slider-nav svg {
-  width: clamp(18px, 2.5vw, 24px); /* Responsive icon size */
-  height: clamp(18px, 2.5vw, 24px);
+  width: 24px;
+  height: 24px;
 }
 
 /* Dots Navigation */
 .home-page .slider-dots {
   display: flex;
   justify-content: center;
-  margin-top: 3rem; /* More space above dots */
-  gap: 0.75rem; /* Slightly more space between dots */
+  margin-top: 2.5rem;
+  gap: 0.8rem;
 }
 
 .home-page .slider-dots button {
-  width: clamp(10px, 1.5vw, 14px); /* Responsive dot size */
-  height: clamp(10px, 1.5vw, 14px);
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: none;
   background: rgba(255, 255, 255, 0.25);
@@ -411,17 +425,17 @@
 
 .home-page .slider-dots button.active {
   background: #3ccfb6;
-  transform: scale(1.3); /* More pronounced active state */
+  transform: scale(1.3);
   box-shadow: 0 0 10px rgba(60, 207, 182, 0.5);
 }
 
 .home-page .slider-dots button::after {
   content: '';
   position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
 }
 
 .home-page .sr-only {
@@ -435,7 +449,6 @@
   white-space: nowrap;
   border-width: 0;
 }
-
 
 /* Projects Section */
 .home-page .projects-grid {
@@ -639,107 +652,412 @@
 }
 
 /* Responsive Design */
+
+
+
+
+
+
+/* ========== TABLET & UP ========== */
 @media (min-width: 768px) {
+  .home-page .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .home-page .hero-content p {
+    font-size: 1.3rem;
+  }
+
   .home-page .about-content {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .home-page .about-image {
     max-width: 300px;
     order: 1;
   }
-  
+
   .home-page .about-text {
     order: 2;
     text-align: left;
     padding: 0 2rem;
   }
-  
+
   .home-page .skills-layout {
     flex-direction: row;
     gap: 4rem;
   }
-  
+
   .home-page .skills-content {
     text-align: left;
     padding: 0;
   }
-  
-  .home-page .contact-content {
-    grid-template-columns: 1fr 1fr;
+
+  .home-page .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
-  
+
+  .home-page .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .home-page .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
   .home-page .contact-info {
     text-align: left;
     padding: 2rem;
   }
-  
+
   .home-page .contact-details p {
     justify-content: flex-start;
   }
-  
-  /* .home-page .slider-nav.prev {
-    left: -50px;
-  }
-  
-  .home-page .slider-nav.next {
-    right: -50px;
-  } */
 
   .home-page .testimonial-slider {
-    padding: 0 2.5rem;
+    padding: 0 2rem;
   }
-  
+
   .home-page .testimonial-card {
-    padding: 2rem 1.5rem;
-    transform: scale(0.98); /* Less scaling on mobile */
+    padding: 2rem;
+    max-width: 800px;
   }
-  
-  .home-page .testimonial-text::before {
-    left: 0;
+
+  .home-page .testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
   }
-  
+
+  .home-page .testimonial-text::before,
   .home-page .testimonial-text::after {
-    right: 0;
+    font-size: 2.5rem;
   }
-  
+
+  .home-page .testimonial-author {
+    margin-top: 2rem;
+  }
+
+  .home-page .name {
+    font-size: 1.2rem;
+  }
+
+  .home-page .role {
+    font-size: 1rem;
+  }
+
   .home-page .slider-nav {
     width: 42px;
     height: 42px;
   }
+
+  .home-page .slider-nav svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .home-page .slider-dots {
+    margin-top: 2rem;
+    gap: 0.8rem;
+  }
+
+  .home-page .slider-dots button {
+    width: 12px;
+    height: 12px;
+  }
 }
 
+/* ========== DESKTOP ========== */
 @media (min-width: 992px) {
+  .home-page .hero-content h1 {
+    font-size: 4rem;
+  }
+
+  .home-page .hero-content p {
+    font-size: 1.5rem;
+  }
+
   .home-page .about-points {
     max-width: 100%;
   }
-  
+
   .home-page .skills-grid {
     padding: 0;
+    grid-template-columns: repeat(4, 1fr);
   }
- .home-page .testimonial-slider {
+
+  .home-page .testimonial-slider {
     padding: 0 3rem;
   }
-  
+
   .home-page .testimonial-card {
-    padding: 2.5rem 2rem;
+    padding: 2.5rem;
+  }
+
+  .home-page .testimonial-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .home-page .testimonial-text::before,
+  .home-page .testimonial-text::after {
+    font-size: 3rem;
+  }
+
+  .home-page .slider-nav:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .home-page .slider-dots button.active {
+    transform: scale(1.3);
+  }
+
+  .home-page .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Very small devices */
+/* ========== SMALL TABLETS ========== */
+@media (max-width: 768px) {
+  .home-page .hero-content h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .home-page .hero-content p {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .home-page .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .home-page .skills-layout {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .home-page .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-page .section-test {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .home-page .section-test .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-page .testimonial-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .home-page .testimonial-track {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .home-page .testimonial-slide {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .home-page .testimonial-card {
+    padding: 1rem;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .home-page .testimonial-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .home-page .testimonial-text::before,
+  .home-page .testimonial-text::after {
+    font-size: 2rem;
+  }
+
+  .home-page .name {
+    font-size: 1.05rem;
+  }
+
+  .home-page .role {
+    font-size: 0.9rem;
+  }
+
+  .home-page .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-page .project-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.home-page .project-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.home-page .project-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.home-page .project-card {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+  .home-page .contact-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+/* ========== MOBILE (≤576px) ========== */
+@media (max-width: 576px) {
+  .home-page .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .home-page .hero-content p {
+    font-size: 1rem;
+  }
+
+  .home-page .testimonial-slider {
+    padding: 0 1rem;
+  }
+
+  .home-page .testimonial-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .home-page .testimonial-text {
+    font-size: 0.95rem;
+  }
+
+  .home-page .testimonial-text::before,
+  .home-page .testimonial-text::after {
+    font-size: 1.8rem;
+  }
+
+  .home-page .slider-nav {
+    width: 38px;
+    height: 38px;
+  }
+
+  .home-page .name {
+    font-size: 1rem;
+  }
+
+  .home-page .role {
+    font-size: 0.85rem;
+  }
+
+  .home-page .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-page .contact-form input,
+  .home-page .contact-form textarea {
+    font-size: 0.95rem;
+  }
+}
+
+/* ========== VERY SMALL PHONES (≤400px) ========== */
 @media (max-width: 400px) {
   .home-page .projects-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .home-page .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .home-page .section {
     padding: 2rem 0;
   }
+
   .home-page .about-image {
     max-width: 250px;
+  }
+
+  .home-page .slider-dots {
+    margin-top: 1.5rem;
+  }
+
+  .home-page .testimonial-card {
+    padding: 1.25rem;
+  }
+
+  .home-page .testimonial-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .home-page .testimonial-text::before,
+  .home-page .testimonial-text::after {
+    font-size: 1.6rem;
+  }
+
+  .home-page .name {
+    font-size: 0.95rem;
+  }
+
+  .home-page .role {
+    font-size: 0.8rem;
+  }
+
+  .home-page .contact-form input,
+  .home-page .contact-form textarea {
+    font-size: 0.85rem;
+  }
+
+  .home-page .hero-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .home-page .hero-content p {
+    font-size: 0.9rem;
   }
 }

@@ -59,7 +59,7 @@
       <div class="skills-grid">
         <div class="skill-item" *ngFor="let skill of skills">
           <img [src]="'assets/icons/' + skill.icon" [alt]="skill.name" class="skill-icon">
-          <span>{{ skill.name }}</span>
+          <span class="skills">{{ skill.name }}</span>
         </div>
       </div>
     </div>
@@ -68,15 +68,18 @@
 
 
 
+
 <!-- Testimonials -->
-<section class="section" id="testimonials">
+<section class="section section-test" id="testimonials">
   <div class="container">
     <h2 class="section-title">What my colleagues say</h2>
     <div class="testimonial-slider">
-      <div class="testimonial-track">
-        <div class="testimonial-slide" *ngFor="let testimonial of testimonials; let i = index" 
-             [class.active]="i === activeTestimonial"
-             [style.transform]="'translateX(' + (-activeTestimonial * 100) + '%)'">
+      <div class="testimonial-track" [style.transform]="'translateX(-' + (activeTestimonial * 100) + '%)'">
+        <div
+          class="testimonial-slide"
+          *ngFor="let testimonial of testimonials; let i = index"
+          [class.active]="i === activeTestimonial"
+        >
           <div class="testimonial-card">
             <p class="testimonial-text">"{{testimonial.text}}"</p>
             <div class="testimonial-author">
@@ -106,6 +109,7 @@
     </div>
   </div>
 </section>
+
 
 
 

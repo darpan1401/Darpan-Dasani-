@@ -61,21 +61,18 @@ export class HomeComponent implements OnInit {
 
 
   skills = [
-    { name: 'HTML', icon: 'html.svg' },
-    { name: 'CSS', icon: 'css.svg' },
-    { name: 'JavaScript', icon: 'javascript.svg' },
-    { name: 'Material Design', icon: 'material-design.svg' },
-    { name: 'TypeScript', icon: 'typescript.svg' },
+    { name: 'Java', icon: 'java.svg' },
     { name: 'Angular', icon: 'angular.svg' },
-    { name: 'Firebase', icon: 'firebase.svg' },
+    { name: 'React.js', icon: 'react.svg' },
+    { name: 'Node.js', icon: 'node.svg' },
+    { name: 'Express.js', icon: 'express.svg' },
+    { name: 'MySql', icon: 'mysql.svg' },
+    { name: 'MongoDB', icon: 'mongo.svg' },
+    { name: 'HTML5', icon: 'html.svg' },
+    { name: 'CSS3', icon: 'css.svg' },
+    { name: 'JavaScript', icon: 'js.svg' },
     { name: 'Git', icon: 'git.svg' },
-    { name: 'REST API', icon: 'api.svg' },
-    { name: 'WordPress', icon: 'wordpress.svg' },
-    { name: 'Figma', icon: 'figma.svg' },
-    { name: 'Photoshop', icon: 'photoshop.svg' },
-    { name: 'Illustrator', icon: 'illustrator.svg' },
-    { name: 'InDesign', icon: 'indesign.svg' },
-    { name: 'Growth Mindset', icon: 'growth.svg' }
+    { name: 'Github', icon: 'github.svg' },
   ];
 
   introText = `I have experience with various frontend and design tools and am always open to learning new technologies. 
@@ -108,7 +105,16 @@ export class HomeComponent implements OnInit {
       tags: ["React", "Node.js", "MongoDB"],
       image: "portfolio.jpg",
       link: "#"
+    },
+    {
+      title: "Portfolio Website",
+      description: "Responsive personal portfolio with dark/light mode toggle.",
+      tags: ["React", "Node.js", "MongoDB"],
+      image: "portfolio.jpg",
+      link: "#"
     }
   ];
+
+  
 
 }
