@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
     { name: 'React.js', icon: 'react.svg' },
     { name: 'Node.js', icon: 'node.svg' },
     { name: 'Express.js', icon: 'express.svg' },
-    { name: 'MySql', icon: 'mysql.svg' },
+    { name: 'MySqll', icon: 'mysql.svg' },
     { name: 'MongoDB', icon: 'mongo.svg' },
     { name: 'HTML5', icon: 'html.svg' },
     { name: 'CSS3', icon: 'css.svg' },
