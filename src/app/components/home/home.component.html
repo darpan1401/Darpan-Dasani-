@@ -1,0 +1,164 @@
+<main>
+    <div class="home-page">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Full Stack Developer</h1>
+      <p>Creating digital experiences with clean code and thoughtful design</p>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="assets/darpan.jpg" alt="Profile Photo">
+        </div>
+        <div class="about-text">
+          <p class="intro">{{aboutMe.intro}}</p>
+          <p>{{aboutMe.description}}</p>
+          <ul class="about-points">
+            <li *ngFor="let point of aboutMe.points">
+              <span class="checkmark">✓</span> {{point}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    <!-- skills -->
+
+<section class="skills-section">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    
+    <div class="skills-layout">
+      <!-- Left side - Text content -->
+      <div class="skills-content">
+        <p class="skills-intro">
+          I have experience with various frontend and design tools and am always open to learning new technologies. 
+          Staying up to date with the fast pace of the web is important to me. I adapt easily to deliver current 
+          and high-quality results.
+        </p>
+        
+        <div class="skills-footer">
+          <p>Do you need another skill?</p>
+          <p>Feel free to contact me. I look forward to expanding on my previous knowledge.</p>
+          <a href="#contact" class="btn">Let's Talk</a>
+        </div>
+      </div>
+      
+      <!-- Right side - Skills grid -->
+      <div class="skills-grid">
+        <div class="skill-item" *ngFor="let skill of skills">
+          <img [src]="'assets/icons/' + skill.icon" [alt]="skill.name" class="skill-icon">
+          <span>{{ skill.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Testimonials -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <h2 class="section-title">What my colleagues say</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial-track">
+        <div class="testimonial-slide" *ngFor="let testimonial of testimonials; let i = index" 
+             [class.active]="i === activeTestimonial"
+             [style.transform]="'translateX(' + (-activeTestimonial * 100) + '%)'">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"{{testimonial.text}}"</p>
+            <div class="testimonial-author">
+              <span class="name">{{testimonial.author}}</span>
+              <span class="role">{{testimonial.role}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="slider-nav prev" (click)="prevTestimonial()">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+        </svg>
+      </button>
+      <button class="slider-nav next" (click)="nextTestimonial()">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+        </svg>
+      </button>
+      <div class="slider-dots">
+        <button *ngFor="let testimonial of testimonials; let i = index" 
+                [class.active]="i === activeTestimonial"
+                (click)="goToTestimonial(i)">
+          <span class="sr-only">Go to testimonial {{i + 1}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card" *ngFor="let project of projects">
+          <div class="project-image">
+            <img [src]="'assets/projects/' + project.image" [alt]="project.title">
+          </div>
+          <div class="project-content">
+            <h3>{{project.title}}</h3>
+            <p>{{project.description}}</p>
+            <div class="project-tags">
+              <span *ngFor="let tag of project.tags">{{tag}}</span>
+            </div>
+            <a [href]="project.link" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's work together</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <p>Looking for a Full Stack Developer? I bring comprehensive skills to build complete web applications.</p>
+          <div class="contact-details">
+            <p><i class="fas fa-envelope"></i> your.emailexample.com</p>
+            <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+          </div>
+        </div>
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your email" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="How can I help you?" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  </div>
+</main>

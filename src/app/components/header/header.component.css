@@ -1,0 +1,167 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #1c1c1c 13.56%, #0f4038 84.01%);
+  padding: 1.5rem 2rem;
+  position: relative;
+  z-index: 100;
+  font-family: 'Fira Code', monospace;
+  /* box-sizing: border-box; */
+}
+
+.name-wrapper {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+#nav-icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1100;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+#nav-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+#nav-icon span:nth-child(1) { top: 0; }
+#nav-icon span:nth-child(2) { top: 12px; }
+#nav-icon span:nth-child(3) { top: 24px; }
+
+#nav-icon.open span:nth-child(1) {
+  top: 12px;
+  transform: rotate(45deg);
+}
+#nav-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+#nav-icon.open span:nth-child(3) {
+  top: 12px;
+  transform: rotate(-45deg);
+}
+
+.nav-container {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #0d3b33 0%, #105252 37%, #1c1c1c 75%);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 1000;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.nav-container.open {
+  max-height: 100vh;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-container nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.nav-container nav a {
+  font-family: 'Fira Code', monospace;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-container nav a:hover {
+  color: #3ccfb6;
+}
+
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  #nav-icon {
+    display: none;
+  }
+
+  .nav-container {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    background: transparent;
+    padding: 0;
+    max-height: none;
+    opacity: 1;
+    pointer-events: auto;
+    width: auto;
+    overflow: visible;
+  }
+
+  .nav-container nav {
+    flex-direction: row;
+    gap: 2rem;
+    width: auto;
+  }
+
+  .nav-container nav a {
+    width: auto;
+    padding: 0;
+    font-size: 1.1rem;
+  }
+
+  body.menu-open {
+    overflow: auto;
+    position: static;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+
+  .name-wrapper {
+    font-size: 1.2rem;
+  }
+
+  .nav-container {
+    padding: 1.5rem 1rem;
+    top: 70px;
+  }
+}
