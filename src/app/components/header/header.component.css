@@ -5,10 +5,10 @@
   align-items: center;
   background: linear-gradient(90deg, #1c1c1c 13.56%, #0f4038 84.01%);
   padding: 1.5rem 2rem;
-  position: relative;
+  position: sticky; /* Changed from relative to sticky */
+  top: 0; /* Required for sticky positioning */
   z-index: 100;
   font-family: 'Fira Code', monospace;
-  /* box-sizing: border-box; */
 }
 
 .name-wrapper {
@@ -18,6 +18,11 @@
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.name-wrapper:hover {
+  transform: scale(1.05);
 }
 
 #nav-icon {
@@ -75,7 +80,7 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
   pointer-events: none;
 }
 
@@ -99,13 +104,30 @@
   text-decoration: none;
   font-size: 1.2rem;
   padding: 0.5rem 0;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 .nav-container nav a:hover {
   color: #3ccfb6;
+}
+
+.nav-container nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #3ccfb6;
+  transition: width 0.3s ease;
+}
+
+.nav-container nav a:hover::after {
+  width: 50%;
 }
 
 body.menu-open {
@@ -114,6 +136,44 @@ body.menu-open {
   width: 100%;
 }
 
+/* 4K Screens (2560px+) */
+@media (min-width: 2560px) {
+  .header {
+    padding: 2rem 4rem;
+  }
+
+  .name-wrapper {
+    font-size: 2.2rem;
+  }
+
+  .nav-container nav a {
+    font-size: 1.5rem;
+  }
+}
+
+/* Large Laptops (1440px-2559px) */
+@media (min-width: 1440px) and (max-width: 2559px) {
+  .header {
+    padding: 1.75rem 3rem;
+  }
+
+  .name-wrapper {
+    font-size: 1.8rem;
+  }
+}
+
+/* Laptops (1024px-1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .header {
+    padding: 1.5rem 2.5rem;
+  }
+
+  .name-wrapper {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablets and Desktop (768px+) */
 @media (min-width: 768px) {
   #nav-icon {
     display: none;
@@ -135,7 +195,7 @@ body.menu-open {
 
   .nav-container nav {
     flex-direction: row;
-    gap: 2rem;
+    gap: 2.5rem;
     width: auto;
   }
 
@@ -145,13 +205,55 @@ body.menu-open {
     font-size: 1.1rem;
   }
 
+  .nav-container nav a::after {
+    left: 0;
+    transform: none;
+  }
+
+  .nav-container nav a:hover::after {
+    width: 100%;
+  }
+
   body.menu-open {
     overflow: auto;
     position: static;
   }
 }
 
-@media (max-width: 500px) {
+/* Large Tablets (768px-1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header {
+    padding: 1.5rem 2rem;
+  }
+
+  .nav-container nav {
+    gap: 1.8rem;
+  }
+}
+
+/* Mobile L (425px-767px) */
+@media (max-width: 767px) {
+  .header {
+    padding: 1.25rem 1.75rem;
+  }
+
+  .name-wrapper {
+    font-size: 1.3rem;
+  }
+
+  .nav-container {
+    top: 75px;
+    padding: 1.75rem;
+    gap: 1.25rem;
+  }
+
+  .nav-container nav a {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile M (375px-424px) */
+@media (max-width: 424px) {
   .header {
     padding: 1rem 1.5rem;
   }
@@ -161,7 +263,49 @@ body.menu-open {
   }
 
   .nav-container {
-    padding: 1.5rem 1rem;
     top: 70px;
+    padding: 1.5rem 1rem;
+  }
+
+  .nav-container nav a {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile S (320px-374px) */
+@media (max-width: 374px) {
+  .header {
+    padding: 0.8rem 1rem;
+  }
+
+  .name-wrapper {
+    font-size: 1.1rem;
+  }
+
+  .nav-container {
+    top: 65px;
+    padding: 1.25rem 0.8rem;
+    gap: 1rem;
+  }
+
+  .nav-container nav a {
+    font-size: 0.95rem;
+  }
+
+  #nav-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  #nav-icon span {
+    height: 2.5px;
+  }
+
+  #nav-icon span:nth-child(2) { top: 10px; }
+  #nav-icon span:nth-child(3) { top: 20px; }
+  
+  #nav-icon.open span:nth-child(1),
+  #nav-icon.open span:nth-child(3) {
+    top: 10px;
   }
 }
